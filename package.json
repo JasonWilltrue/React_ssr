@@ -16,8 +16,9 @@
 		"webpack-node-externals": "^1.7.2"
 	},
 	"scripts": {
-		"start": "node ./build/bundle.js",
-		"build": "webpack --config webpack.server.js"
+		"start": "nodemon --watch build --exec node \"./build/bundle.js\"",
+		"build": "webpack --config webpack.server.js --watch",
+		"client": "webpack --config webpack.client.js"
 	},
 	"devDependencies": {
 		"webpack": "^4.16.0",
