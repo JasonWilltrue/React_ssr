@@ -2,14 +2,21 @@
 import express from 'express';
 import React from 'react';
 import { renderToString } from 'react-dom/server.js';
-
-import Home from '../container/home';
-
 const app = express();
 app.use(express.static('public')); //让浏览器识别静态文件
-const content = renderToString(<Home />);
+import { StaticRouter } from 'react-router-dom';
+import Routes from '../Router';
+// const content = renderToString(<Home />);
 
 app.get('/', function(req, res) {
+	/**
+	 * StaticRouter 并不智能  要求浏览器端发送请求地址location  根据地址判断请求的网页是那个组件 然后再去渲染相对应得组件
+	 */
+	const content = renderToString(
+		<StaticRouter location={req.path} context={{}}>
+			{Routes}
+		</StaticRouter>
+	);
 	res.send(`<!DOCTYPE html>
 	<html lang="en">
 	<head>
