@@ -1,8 +1,9 @@
 // var express = require('express');
 import express from 'express';
-import Home from './container/home/index.js';
 import React from 'react';
 import { renderToString } from 'react-dom/server.js';
+
+import Home from '../container/home';
 
 const app = express();
 app.use(express.static('public')); //让浏览器识别静态文件
@@ -14,12 +15,12 @@ app.get('/', function(req, res) {
 	<head>
 		<meta charset="UTF-8">
 		<meta name="viewport" content="width=device-width, initial-scale=1.0">
-		<meta http-equiv="X-UA-Compatible" content="ie=edge">\
-		<script src="/index.js"></script>
+		<meta http-equiv="X-UA-Compatible" content="ie=edge">
 		<title>Document</title>
 	</head>
 	<body>
 		 <div id="root">${content}</div>
+		 <script src="/index.js"></script>
 	</body>
 	</html>`);
 });
