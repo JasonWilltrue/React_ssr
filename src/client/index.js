@@ -2,7 +2,7 @@
  * @Author: Jerrychan
  * @Date: 2018-12-20 14:50:29
  * @LastEditors: Jerrychan
- * @LastEditTime: 2018-12-21 16:58:25
+ * @LastEditTime: 2018-12-21 17:03:16
  * @Description: 浏览器端源文件
  */
 import React from 'react';
@@ -11,11 +11,11 @@ import { BrowserRouter } from 'react-router-dom';
 // import Home from '../container/home';
 import Routes from '../Router';
 import { Provider } from 'react-redux';
-import store from '../store';
+import getStore from '../store';
 
 const App = () => {
 	return (
-		<Provider store={store}>
+		<Provider store={getStore()}>
 			<BrowserRouter>{Routes}</BrowserRouter>
 		</Provider>
 	);
