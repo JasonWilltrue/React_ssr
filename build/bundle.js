@@ -106,7 +106,7 @@ eval("\n\nObject.defineProperty(exports, \"__esModule\", {\n\tvalue: true\n});\n
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
-eval("\n\nObject.defineProperty(exports, \"__esModule\", {\n\tvalue: true\n});\n\nvar _react = __webpack_require__(/*! react */ \"react\");\n\nvar _react2 = _interopRequireDefault(_react);\n\nfunction _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }\n\nvar Home = function Home() {\n\treturn _react2.default.createElement(\n\t\t'div',\n\t\tnull,\n\t\t_react2.default.createElement(\n\t\t\t'div',\n\t\t\tnull,\n\t\t\t'ssr\\u6E32\\u67D3\\u70B9\\u51FB\\u4E8B\\u4EF6'\n\t\t),\n\t\t_react2.default.createElement(\n\t\t\t'button',\n\t\t\t{ onClick: function onClick() {\n\t\t\t\t\treturn alert('点击开始了');\n\t\t\t\t} },\n\t\t\t'\\u70B9\\u51FB'\n\t\t)\n\t);\n};\n\n// node下暴露不可以export default Home;\n\n// module.export = {\n// \tdefault: Home,\n// };\n// const React = require('react');\nexports.default = Home;\n\n//# sourceURL=webpack:///./src/container/home/index.js?");
+eval("\n\nObject.defineProperty(exports, \"__esModule\", {\n\tvalue: true\n});\n\nvar _react = __webpack_require__(/*! react */ \"react\");\n\nvar _react2 = _interopRequireDefault(_react);\n\nvar _reactRouterDom = __webpack_require__(/*! react-router-dom */ \"react-router-dom\");\n\nvar _reactRedux = __webpack_require__(/*! react-redux */ \"react-redux\");\n\nfunction _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }\n\nvar Home = function Home(props) {\n\tconsole.log(props);\n\treturn _react2.default.createElement(\n\t\t'div',\n\t\tnull,\n\t\t_react2.default.createElement(\n\t\t\t_reactRouterDom.Link,\n\t\t\t{ to: '/login' },\n\t\t\t_react2.default.createElement(\n\t\t\t\t'div',\n\t\t\t\tnull,\n\t\t\t\t'Login'\n\t\t\t)\n\t\t),\n\t\t_react2.default.createElement(\n\t\t\t_reactRouterDom.Link,\n\t\t\t{ to: '/' },\n\t\t\t_react2.default.createElement(\n\t\t\t\t'div',\n\t\t\t\tnull,\n\t\t\t\t'Home'\n\t\t\t)\n\t\t),\n\t\t_react2.default.createElement(\n\t\t\t'p',\n\t\t\tnull,\n\t\t\t'\\u8FD9\\u91CC\\u663E\\u793A: ',\n\t\t\tprops.name\n\t\t),\n\t\t_react2.default.createElement(\n\t\t\t'div',\n\t\t\tnull,\n\t\t\t'ssr\\u6E32\\u67D3\\u70B9\\u51FB\\u4E8B\\u4EF6'\n\t\t),\n\t\t_react2.default.createElement(\n\t\t\t'button',\n\t\t\t{ onClick: function onClick() {\n\t\t\t\t\treturn alert('点击开始了');\n\t\t\t\t} },\n\t\t\t'\\u70B9\\u51FB'\n\t\t)\n\t);\n}; // const React = require('react');\n\n\nvar mapStateToProps = function mapStateToProps(state) {\n\treturn {\n\t\tname: state.name,\n\t\tage: state.age,\n\t\tlove: state.love\n\t};\n};\n\nvar mapDispatchToProps = function mapDispatchToProps(dispatch) {};\n\nexports.default = (0, _reactRedux.connect)(mapStateToProps, null)(Home);\n// node下暴露不可以export default Home;\n\n// module.export = {\n// \tdefault: Home,\n// };\n\n//# sourceURL=webpack:///./src/container/home/index.js?");
 
 /***/ }),
 
@@ -142,7 +142,7 @@ eval("\n\nvar _express = __webpack_require__(/*! express */ \"express\");\n\nvar
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
-eval("\n\nObject.defineProperty(exports, \"__esModule\", {\n\tvalue: true\n});\nexports.render = undefined;\n\nvar _react = __webpack_require__(/*! react */ \"react\");\n\nvar _react2 = _interopRequireDefault(_react);\n\nvar _reactRouterDom = __webpack_require__(/*! react-router-dom */ \"react-router-dom\");\n\nvar _Router = __webpack_require__(/*! ../Router */ \"./src/Router.js\");\n\nvar _Router2 = _interopRequireDefault(_Router);\n\nvar _server = __webpack_require__(/*! react-dom/server */ \"react-dom/server\");\n\nfunction _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }\n\nvar render = exports.render = function render(req) {\n\t/**\n  * StaticRouter 并不智能  要求浏览器端发送请求地址location  根据地址判断请求的网页是那个组件 然后再去渲染相对应得组件\n  */\n\tvar content = (0, _server.renderToString)(_react2.default.createElement(\n\t\t_reactRouterDom.StaticRouter,\n\t\t{ location: req.path, context: {} },\n\t\t_Router2.default\n\t));\n\treturn '<!DOCTYPE html>\\n\\t<html lang=\"en\">\\n\\t<head>\\n\\t\\t<meta charset=\"UTF-8\">\\n\\t\\t<meta name=\"viewport\" content=\"width=device-width, initial-scale=1.0\">\\n\\t\\t<meta http-equiv=\"X-UA-Compatible\" content=\"ie=edge\">\\n\\t\\t<title>Document</title>\\n\\t</head>\\n\\t<body>\\n\\t\\t <div id=\"root\">' + content + '</div>\\n\\t\\t <script src=\"/index.js\"></script>\\n\\t</body>\\n\\t</html>';\n};\n\n//# sourceURL=webpack:///./src/server/util.js?");
+eval("\n\nObject.defineProperty(exports, \"__esModule\", {\n\tvalue: true\n});\nexports.render = undefined;\n\nvar _react = __webpack_require__(/*! react */ \"react\");\n\nvar _react2 = _interopRequireDefault(_react);\n\nvar _reactRouterDom = __webpack_require__(/*! react-router-dom */ \"react-router-dom\");\n\nvar _Router = __webpack_require__(/*! ../Router */ \"./src/Router.js\");\n\nvar _Router2 = _interopRequireDefault(_Router);\n\nvar _server = __webpack_require__(/*! react-dom/server */ \"react-dom/server\");\n\nvar _redux = __webpack_require__(/*! redux */ \"redux\");\n\nvar _reactRedux = __webpack_require__(/*! react-redux */ \"react-redux\");\n\nfunction _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }\n\nvar render = exports.render = function render(req) {\n\t/**\n  * StaticRouter 并不智能  要求浏览器端发送请求地址location  根据地址判断请求的网页是那个组件 然后再去渲染相对应得组件\n  */\n\tvar reducer = function reducer() {\n\t\tvar state = arguments.length > 0 && arguments[0] !== undefined ? arguments[0] : { name: 'jack', age: '13', love: 'ooxx' };\n\t\tvar action = arguments[1];\n\n\t\treturn state;\n\t};\n\n\tvar store = (0, _redux.createStore)(reducer);\n\n\tvar content = (0, _server.renderToString)(_react2.default.createElement(\n\t\t_reactRedux.Provider,\n\t\t{ store: store },\n\t\t_react2.default.createElement(\n\t\t\t_reactRouterDom.StaticRouter,\n\t\t\t{ location: req.path, context: {} },\n\t\t\t_Router2.default\n\t\t)\n\t));\n\treturn '<!DOCTYPE html>\\n\\t<html lang=\"en\">\\n\\t<head>\\n\\t\\t<meta charset=\"UTF-8\">\\n\\t\\t<meta name=\"viewport\" content=\"width=device-width, initial-scale=1.0\">\\n\\t\\t<meta http-equiv=\"X-UA-Compatible\" content=\"ie=edge\">\\n\\t\\t<title>Document</title>\\n\\t</head>\\n\\t<body>\\n\\t\\t <div id=\"root\">' + content + '</div>\\n\\t\\t <script src=\"/index.js\"></script>\\n\\t</body>\\n\\t</html>';\n};\n\n//# sourceURL=webpack:///./src/server/util.js?");
 
 /***/ }),
 
@@ -179,6 +179,17 @@ eval("module.exports = require(\"react-dom/server\");\n\n//# sourceURL=webpack:/
 
 /***/ }),
 
+/***/ "react-redux":
+/*!******************************!*\
+  !*** external "react-redux" ***!
+  \******************************/
+/*! no static exports found */
+/***/ (function(module, exports) {
+
+eval("module.exports = require(\"react-redux\");\n\n//# sourceURL=webpack:///external_%22react-redux%22?");
+
+/***/ }),
+
 /***/ "react-router-dom":
 /*!***********************************!*\
   !*** external "react-router-dom" ***!
@@ -187,6 +198,17 @@ eval("module.exports = require(\"react-dom/server\");\n\n//# sourceURL=webpack:/
 /***/ (function(module, exports) {
 
 eval("module.exports = require(\"react-router-dom\");\n\n//# sourceURL=webpack:///external_%22react-router-dom%22?");
+
+/***/ }),
+
+/***/ "redux":
+/*!************************!*\
+  !*** external "redux" ***!
+  \************************/
+/*! no static exports found */
+/***/ (function(module, exports) {
+
+eval("module.exports = require(\"redux\");\n\n//# sourceURL=webpack:///external_%22redux%22?");
 
 /***/ })
 

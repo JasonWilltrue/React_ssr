@@ -2,14 +2,25 @@ import React from 'react';
 import { StaticRouter } from 'react-router-dom';
 import Routes from '../Router';
 import { renderToString } from 'react-dom/server';
+import { createStore } from 'redux';
+import { Provider } from 'react-redux';
+
 export const render = req => {
 	/**
 	 * StaticRouter 并不智能  要求浏览器端发送请求地址location  根据地址判断请求的网页是那个组件 然后再去渲染相对应得组件
 	 */
+	const reducer = (state = { name: 'jack', age: '13', love: 'ooxx' }, action) => {
+		return state;
+	};
+
+	const store = createStore(reducer);
+
 	const content = renderToString(
-		<StaticRouter location={req.path} context={{}}>
-			{Routes}
-		</StaticRouter>
+		<Provider store={store}>
+			<StaticRouter location={req.path} context={{}}>
+				{Routes}
+			</StaticRouter>
+		</Provider>
 	);
 	return `<!DOCTYPE html>
 	<html lang="en">
