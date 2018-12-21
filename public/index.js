@@ -914,6 +914,18 @@ eval("\n\nif (false) {} else {\n  module.exports = __webpack_require__(/*! ./cjs
 
 /***/ }),
 
+/***/ "./node_modules/redux-thunk/es/index.js":
+/*!**********************************************!*\
+  !*** ./node_modules/redux-thunk/es/index.js ***!
+  \**********************************************/
+/*! no static exports found */
+/***/ (function(module, exports, __webpack_require__) {
+
+"use strict";
+eval("\n\nObject.defineProperty(exports, \"__esModule\", {\n  value: true\n});\nfunction createThunkMiddleware(extraArgument) {\n  return function (_ref) {\n    var dispatch = _ref.dispatch,\n        getState = _ref.getState;\n    return function (next) {\n      return function (action) {\n        if (typeof action === 'function') {\n          return action(dispatch, getState, extraArgument);\n        }\n\n        return next(action);\n      };\n    };\n  };\n}\n\nvar thunk = createThunkMiddleware();\nthunk.withExtraArgument = createThunkMiddleware;\n\nexports.default = thunk;\n\n//# sourceURL=webpack:///./node_modules/redux-thunk/es/index.js?");
+
+/***/ }),
+
 /***/ "./node_modules/redux/es/redux.js":
 /*!****************************************!*\
   !*** ./node_modules/redux/es/redux.js ***!
@@ -1078,7 +1090,7 @@ eval("\n\nObject.defineProperty(exports, \"__esModule\", {\n\tvalue: true\n});\n
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
-eval("\n\nvar _react = __webpack_require__(/*! react */ \"./node_modules/react/index.js\");\n\nvar _react2 = _interopRequireDefault(_react);\n\nvar _reactDom = __webpack_require__(/*! react-dom */ \"./node_modules/react-dom/index.js\");\n\nvar _reactDom2 = _interopRequireDefault(_reactDom);\n\nvar _reactRouterDom = __webpack_require__(/*! react-router-dom */ \"./node_modules/react-router-dom/es/index.js\");\n\nvar _Router = __webpack_require__(/*! ../Router */ \"./src/Router.js\");\n\nvar _Router2 = _interopRequireDefault(_Router);\n\nvar _redux = __webpack_require__(/*! redux */ \"./node_modules/redux/es/redux.js\");\n\nvar _reactRedux = __webpack_require__(/*! react-redux */ \"./node_modules/react-redux/es/index.js\");\n\nfunction _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }\n\n/*\n * @Author: Jerrychan\n * @Date: 2018-12-20 14:50:29\n * @LastEditors: Jerrychan\n * @LastEditTime: 2018-12-21 16:10:39\n * @Description: 浏览器端源文件\n */\nvar reducer = function reducer() {\n  var state = arguments.length > 0 && arguments[0] !== undefined ? arguments[0] : { name: 'jack', age: '13', love: 'ooxx' };\n  var action = arguments[1];\n\n  return state;\n};\n// import Home from '../container/home';\n\n\nvar store = (0, _redux.createStore)(reducer);\n\nvar App = function App() {\n  return _react2.default.createElement(\n    _reactRedux.Provider,\n    { store: store },\n    _react2.default.createElement(\n      _reactRouterDom.BrowserRouter,\n      null,\n      _Router2.default\n    )\n  );\n};\n//同构  服务端渲染一次  客户端再渲染一次\n_reactDom2.default.hydrate(_react2.default.createElement(App, null), document.getElementById('root'));\n\n//# sourceURL=webpack:///./src/client/index.js?");
+eval("\n\nvar _react = __webpack_require__(/*! react */ \"./node_modules/react/index.js\");\n\nvar _react2 = _interopRequireDefault(_react);\n\nvar _reactDom = __webpack_require__(/*! react-dom */ \"./node_modules/react-dom/index.js\");\n\nvar _reactDom2 = _interopRequireDefault(_reactDom);\n\nvar _reactRouterDom = __webpack_require__(/*! react-router-dom */ \"./node_modules/react-router-dom/es/index.js\");\n\nvar _Router = __webpack_require__(/*! ../Router */ \"./src/Router.js\");\n\nvar _Router2 = _interopRequireDefault(_Router);\n\nvar _redux = __webpack_require__(/*! redux */ \"./node_modules/redux/es/redux.js\");\n\nvar _reactRedux = __webpack_require__(/*! react-redux */ \"./node_modules/react-redux/es/index.js\");\n\nvar _reduxThunk = __webpack_require__(/*! redux-thunk */ \"./node_modules/redux-thunk/es/index.js\");\n\nvar _reduxThunk2 = _interopRequireDefault(_reduxThunk);\n\nfunction _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }\n\n// import Home from '../container/home';\nvar reducer = function reducer() {\n  var state = arguments.length > 0 && arguments[0] !== undefined ? arguments[0] : { name: 'jack1', age: '16', love: '1ooxx' };\n  var action = arguments[1];\n\n  return state;\n}; /*\n    * @Author: Jerrychan\n    * @Date: 2018-12-20 14:50:29\n    * @LastEditors: Jerrychan\n    * @LastEditTime: 2018-12-21 16:46:19\n    * @Description: 浏览器端源文件\n    */\n\n\nvar store = (0, _redux.createStore)(reducer, (0, _redux.applyMiddleware)(_reduxThunk2.default));\n\nvar App = function App() {\n  return _react2.default.createElement(\n    _reactRedux.Provider,\n    { store: store },\n    _react2.default.createElement(\n      _reactRouterDom.BrowserRouter,\n      null,\n      _Router2.default\n    )\n  );\n};\n//同构  服务端渲染一次  客户端再渲染一次\n_reactDom2.default.hydrate(_react2.default.createElement(App, null), document.getElementById('root'));\n\n//# sourceURL=webpack:///./src/client/index.js?");
 
 /***/ }),
 

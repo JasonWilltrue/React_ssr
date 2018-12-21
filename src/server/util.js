@@ -2,9 +2,9 @@ import React from 'react';
 import { StaticRouter } from 'react-router-dom';
 import Routes from '../Router';
 import { renderToString } from 'react-dom/server';
-import { createStore } from 'redux';
+import { createStore, applyMiddleware } from 'redux';
 import { Provider } from 'react-redux';
-
+import thunk from 'redux-thunk';
 export const render = req => {
 	/**
 	 * StaticRouter 并不智能  要求浏览器端发送请求地址location  根据地址判断请求的网页是那个组件 然后再去渲染相对应得组件
@@ -13,7 +13,7 @@ export const render = req => {
 		return state;
 	};
 
-	const store = createStore(reducer);
+	const store = createStore(reducer, applyMiddleware(thunk));
 
 	const content = renderToString(
 		<Provider store={store}>
