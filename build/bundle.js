@@ -130,7 +130,19 @@ eval("\n\nObject.defineProperty(exports, \"__esModule\", {\n\tvalue: true\n});\n
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
-eval("\n\nvar _express = __webpack_require__(/*! express */ \"express\");\n\nvar _express2 = _interopRequireDefault(_express);\n\nvar _react = __webpack_require__(/*! react */ \"react\");\n\nvar _react2 = _interopRequireDefault(_react);\n\nvar _server = __webpack_require__(/*! react-dom/server.js */ \"react-dom/server.js\");\n\nvar _reactRouterDom = __webpack_require__(/*! react-router-dom */ \"react-router-dom\");\n\nvar _Router = __webpack_require__(/*! ../Router */ \"./src/Router.js\");\n\nvar _Router2 = _interopRequireDefault(_Router);\n\nfunction _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }\n\nvar app = (0, _express2.default)(); // var express = require('express');\n\napp.use(_express2.default.static('public')); //让浏览器识别静态文件\n\n// const content = renderToString(<Home />);\n\napp.get('/', function (req, res) {\n\t/**\n  * StaticRouter 并不智能  要求浏览器端发送请求地址location  根据地址判断请求的网页是那个组件 然后再去渲染相对应得组件\n  */\n\tvar content = (0, _server.renderToString)(_react2.default.createElement(\n\t\t_reactRouterDom.StaticRouter,\n\t\t{ location: req.path, context: {} },\n\t\t_Router2.default\n\t));\n\tres.send('<!DOCTYPE html>\\n\\t<html lang=\"en\">\\n\\t<head>\\n\\t\\t<meta charset=\"UTF-8\">\\n\\t\\t<meta name=\"viewport\" content=\"width=device-width, initial-scale=1.0\">\\n\\t\\t<meta http-equiv=\"X-UA-Compatible\" content=\"ie=edge\">\\n\\t\\t<title>Document</title>\\n\\t</head>\\n\\t<body>\\n\\t\\t <div id=\"root\">' + content + '</div>\\n\\t\\t <script src=\"/index.js\"></script>\\n\\t</body>\\n\\t</html>');\n});\n\nvar server = app.listen(3000);\nconsole.log('服务器3000开启了');\n\n//# sourceURL=webpack:///./src/server/index.js?");
+eval("\n\nvar _express = __webpack_require__(/*! express */ \"express\");\n\nvar _express2 = _interopRequireDefault(_express);\n\nvar _util = __webpack_require__(/*! ./util */ \"./src/server/util.js\");\n\nfunction _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }\n\nvar app = (0, _express2.default)(); // var express = require('express');\n\n\napp.use(_express2.default.static('public')); //让浏览器识别静态文件\n\n// const content = renderToString(<Home />);\n\napp.get('*', function (req, res) {\n\tres.send((0, _util.render)(req));\n});\nvar server = app.listen(3000);\nconsole.log('服务器3000开启了');\n\n//# sourceURL=webpack:///./src/server/index.js?");
+
+/***/ }),
+
+/***/ "./src/server/util.js":
+/*!****************************!*\
+  !*** ./src/server/util.js ***!
+  \****************************/
+/*! no static exports found */
+/***/ (function(module, exports, __webpack_require__) {
+
+"use strict";
+eval("\n\nObject.defineProperty(exports, \"__esModule\", {\n\tvalue: true\n});\nexports.render = undefined;\n\nvar _react = __webpack_require__(/*! react */ \"react\");\n\nvar _react2 = _interopRequireDefault(_react);\n\nvar _reactRouterDom = __webpack_require__(/*! react-router-dom */ \"react-router-dom\");\n\nvar _Router = __webpack_require__(/*! ../Router */ \"./src/Router.js\");\n\nvar _Router2 = _interopRequireDefault(_Router);\n\nvar _server = __webpack_require__(/*! react-dom/server */ \"react-dom/server\");\n\nfunction _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }\n\nvar render = exports.render = function render(req) {\n\t/**\n  * StaticRouter 并不智能  要求浏览器端发送请求地址location  根据地址判断请求的网页是那个组件 然后再去渲染相对应得组件\n  */\n\tvar content = (0, _server.renderToString)(_react2.default.createElement(\n\t\t_reactRouterDom.StaticRouter,\n\t\t{ location: req.path, context: {} },\n\t\t_Router2.default\n\t));\n\treturn '<!DOCTYPE html>\\n\\t<html lang=\"en\">\\n\\t<head>\\n\\t\\t<meta charset=\"UTF-8\">\\n\\t\\t<meta name=\"viewport\" content=\"width=device-width, initial-scale=1.0\">\\n\\t\\t<meta http-equiv=\"X-UA-Compatible\" content=\"ie=edge\">\\n\\t\\t<title>Document</title>\\n\\t</head>\\n\\t<body>\\n\\t\\t <div id=\"root\">' + content + '</div>\\n\\t\\t <script src=\"/index.js\"></script>\\n\\t</body>\\n\\t</html>';\n};\n\n//# sourceURL=webpack:///./src/server/util.js?");
 
 /***/ }),
 
@@ -156,14 +168,14 @@ eval("module.exports = require(\"react\");\n\n//# sourceURL=webpack:///external_
 
 /***/ }),
 
-/***/ "react-dom/server.js":
-/*!**************************************!*\
-  !*** external "react-dom/server.js" ***!
-  \**************************************/
+/***/ "react-dom/server":
+/*!***********************************!*\
+  !*** external "react-dom/server" ***!
+  \***********************************/
 /*! no static exports found */
 /***/ (function(module, exports) {
 
-eval("module.exports = require(\"react-dom/server.js\");\n\n//# sourceURL=webpack:///external_%22react-dom/server.js%22?");
+eval("module.exports = require(\"react-dom/server\");\n\n//# sourceURL=webpack:///external_%22react-dom/server%22?");
 
 /***/ }),
 
