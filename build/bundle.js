@@ -106,7 +106,43 @@ eval("\n\nObject.defineProperty(exports, \"__esModule\", {\n\tvalue: true\n});\n
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
-eval("\n\nObject.defineProperty(exports, \"__esModule\", {\n\tvalue: true\n});\n\nvar _react = __webpack_require__(/*! react */ \"react\");\n\nvar _react2 = _interopRequireDefault(_react);\n\nvar _reactRouterDom = __webpack_require__(/*! react-router-dom */ \"react-router-dom\");\n\nvar _reactRedux = __webpack_require__(/*! react-redux */ \"react-redux\");\n\nfunction _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }\n\nvar Home = function Home(props) {\n\tconsole.log(props);\n\treturn _react2.default.createElement(\n\t\t'div',\n\t\tnull,\n\t\t_react2.default.createElement(\n\t\t\t_reactRouterDom.Link,\n\t\t\t{ to: '/login' },\n\t\t\t_react2.default.createElement(\n\t\t\t\t'div',\n\t\t\t\tnull,\n\t\t\t\t'Login'\n\t\t\t)\n\t\t),\n\t\t_react2.default.createElement(\n\t\t\t_reactRouterDom.Link,\n\t\t\t{ to: '/' },\n\t\t\t_react2.default.createElement(\n\t\t\t\t'div',\n\t\t\t\tnull,\n\t\t\t\t'Home'\n\t\t\t)\n\t\t),\n\t\t_react2.default.createElement(\n\t\t\t'p',\n\t\t\tnull,\n\t\t\t'\\u8FD9\\u91CC\\u663E\\u793A: ',\n\t\t\tprops.name\n\t\t),\n\t\t_react2.default.createElement(\n\t\t\t'div',\n\t\t\tnull,\n\t\t\t'ssr\\u6E32\\u67D3\\u70B9\\u51FB\\u4E8B\\u4EF6'\n\t\t),\n\t\t_react2.default.createElement(\n\t\t\t'button',\n\t\t\t{ onClick: function onClick() {\n\t\t\t\t\treturn alert('点击开始了');\n\t\t\t\t} },\n\t\t\t'\\u70B9\\u51FB'\n\t\t)\n\t);\n}; // const React = require('react');\n\n\nvar mapStateToProps = function mapStateToProps(state) {\n\treturn {\n\t\tname: state.name,\n\t\tage: state.age,\n\t\tlove: state.love\n\t};\n};\n\nvar mapDispatchToProps = function mapDispatchToProps(dispatch) {};\n\nexports.default = (0, _reactRedux.connect)(mapStateToProps, null)(Home);\n// node下暴露不可以export default Home;\n\n// module.export = {\n// \tdefault: Home,\n// };\n\n//# sourceURL=webpack:///./src/container/home/index.js?");
+eval("\n\nObject.defineProperty(exports, \"__esModule\", {\n\tvalue: true\n});\n\nvar _createClass = function () { function defineProperties(target, props) { for (var i = 0; i < props.length; i++) { var descriptor = props[i]; descriptor.enumerable = descriptor.enumerable || false; descriptor.configurable = true; if (\"value\" in descriptor) descriptor.writable = true; Object.defineProperty(target, descriptor.key, descriptor); } } return function (Constructor, protoProps, staticProps) { if (protoProps) defineProperties(Constructor.prototype, protoProps); if (staticProps) defineProperties(Constructor, staticProps); return Constructor; }; }();\n\nvar _react = __webpack_require__(/*! react */ \"react\");\n\nvar _react2 = _interopRequireDefault(_react);\n\nvar _reactRouterDom = __webpack_require__(/*! react-router-dom */ \"react-router-dom\");\n\nvar _reactRedux = __webpack_require__(/*! react-redux */ \"react-redux\");\n\nvar _action = __webpack_require__(/*! ./store/action */ \"./src/container/home/store/action.js\");\n\nfunction _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }\n\nfunction _classCallCheck(instance, Constructor) { if (!(instance instanceof Constructor)) { throw new TypeError(\"Cannot call a class as a function\"); } }\n\nfunction _possibleConstructorReturn(self, call) { if (!self) { throw new ReferenceError(\"this hasn't been initialised - super() hasn't been called\"); } return call && (typeof call === \"object\" || typeof call === \"function\") ? call : self; }\n\nfunction _inherits(subClass, superClass) { if (typeof superClass !== \"function\" && superClass !== null) { throw new TypeError(\"Super expression must either be null or a function, not \" + typeof superClass); } subClass.prototype = Object.create(superClass && superClass.prototype, { constructor: { value: subClass, enumerable: false, writable: true, configurable: true } }); if (superClass) Object.setPrototypeOf ? Object.setPrototypeOf(subClass, superClass) : subClass.__proto__ = superClass; } // const React = require('react');\n\n\nvar Home = function (_Component) {\n\t_inherits(Home, _Component);\n\n\tfunction Home() {\n\t\t_classCallCheck(this, Home);\n\n\t\treturn _possibleConstructorReturn(this, (Home.__proto__ || Object.getPrototypeOf(Home)).apply(this, arguments));\n\t}\n\n\t_createClass(Home, [{\n\t\tkey: 'render',\n\t\tvalue: function render() {\n\t\t\treturn _react2.default.createElement(\n\t\t\t\t'div',\n\t\t\t\tnull,\n\t\t\t\t_react2.default.createElement(\n\t\t\t\t\t_reactRouterDom.Link,\n\t\t\t\t\t{ to: '/login' },\n\t\t\t\t\t_react2.default.createElement(\n\t\t\t\t\t\t'div',\n\t\t\t\t\t\tnull,\n\t\t\t\t\t\t'Login'\n\t\t\t\t\t)\n\t\t\t\t),\n\t\t\t\t_react2.default.createElement(\n\t\t\t\t\t_reactRouterDom.Link,\n\t\t\t\t\t{ to: '/' },\n\t\t\t\t\t_react2.default.createElement(\n\t\t\t\t\t\t'div',\n\t\t\t\t\t\tnull,\n\t\t\t\t\t\t'Home'\n\t\t\t\t\t)\n\t\t\t\t),\n\t\t\t\t_react2.default.createElement(\n\t\t\t\t\t'p',\n\t\t\t\t\tnull,\n\t\t\t\t\t'\\u8FD9\\u91CC\\u663E\\u793A: ',\n\t\t\t\t\tthis.props.name\n\t\t\t\t),\n\t\t\t\tthis.props.newsList.map(function (item) {\n\t\t\t\t\treturn _react2.default.createElement(\n\t\t\t\t\t\t'div',\n\t\t\t\t\t\t{ key: item.id },\n\t\t\t\t\t\titem.title\n\t\t\t\t\t);\n\t\t\t\t}),\n\t\t\t\t_react2.default.createElement(\n\t\t\t\t\t'div',\n\t\t\t\t\tnull,\n\t\t\t\t\t'ssr\\u6E32\\u67D3\\u70B9\\u51FB\\u4E8B\\u4EF6'\n\t\t\t\t),\n\t\t\t\t_react2.default.createElement(\n\t\t\t\t\t'button',\n\t\t\t\t\t{ onClick: function onClick() {\n\t\t\t\t\t\t\treturn alert('点击开始了');\n\t\t\t\t\t\t} },\n\t\t\t\t\t'\\u70B9\\u51FB'\n\t\t\t\t)\n\t\t\t);\n\t\t}\n\t}, {\n\t\tkey: 'componentDidMount',\n\t\tvalue: function componentDidMount() {\n\t\t\tthis.props.getHomeList();\n\t\t}\n\t}]);\n\n\treturn Home;\n}(_react.Component);\n\nvar mapStateToProps = function mapStateToProps(state) {\n\treturn {\n\t\tname: state.home.name, //home中的name\n\t\tnewsList: state.home.newsList,\n\t\tage: state.age,\n\t\tlove: state.love\n\t};\n};\n\nvar mapDispatchToProps = function mapDispatchToProps(dispatch) {\n\treturn {\n\t\tgetHomeList: function getHomeList() {\n\t\t\tdispatch((0, _action.actionGetHomeList)());\n\t\t}\n\t};\n};\n\nexports.default = (0, _reactRedux.connect)(mapStateToProps, mapDispatchToProps)(Home);\n// node下暴露不可以export default Home;\n\n// module.export = {\n// \tdefault: Home,\n// };\n\n//# sourceURL=webpack:///./src/container/home/index.js?");
+
+/***/ }),
+
+/***/ "./src/container/home/store/action.js":
+/*!********************************************!*\
+  !*** ./src/container/home/store/action.js ***!
+  \********************************************/
+/*! no static exports found */
+/***/ (function(module, exports, __webpack_require__) {
+
+"use strict";
+eval("\n\nObject.defineProperty(exports, \"__esModule\", {\n\tvalue: true\n});\nexports.actionGetHomeList = undefined;\n\nvar _axios = __webpack_require__(/*! axios */ \"axios\");\n\nvar _axios2 = _interopRequireDefault(_axios);\n\nfunction _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }\n\nvar renderHomeList = function renderHomeList(data) {\n\treturn {\n\t\ttype: 'RENDER_HOME_LIST',\n\t\tdata: data\n\t};\n};\n\nvar actionGetHomeList = exports.actionGetHomeList = function actionGetHomeList() {\n\t//异步请求\n\treturn function (dispatch) {\n\t\t_axios2.default.get('http://rap2api.taobao.org/app/mock/8651/api/tuangou').then(function (res) {\n\t\t\tconsole.log(res.data.result);\n\t\t\tvar data = res.data.result;\n\t\t\tdispatch(renderHomeList(data));\n\t\t}).catch(function (err) {\n\t\t\tconsole.log(err);\n\t\t});\n\t};\n};\n\n//# sourceURL=webpack:///./src/container/home/store/action.js?");
+
+/***/ }),
+
+/***/ "./src/container/home/store/index.js":
+/*!*******************************************!*\
+  !*** ./src/container/home/store/index.js ***!
+  \*******************************************/
+/*! no static exports found */
+/***/ (function(module, exports, __webpack_require__) {
+
+"use strict";
+eval("\n\nObject.defineProperty(exports, \"__esModule\", {\n  value: true\n});\nexports.reducer = undefined;\n\nvar _redurce = __webpack_require__(/*! ./redurce */ \"./src/container/home/store/redurce.js\");\n\nvar _redurce2 = _interopRequireDefault(_redurce);\n\nfunction _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }\n\nexports.reducer = _redurce2.default;\n\n//# sourceURL=webpack:///./src/container/home/store/index.js?");
+
+/***/ }),
+
+/***/ "./src/container/home/store/redurce.js":
+/*!*********************************************!*\
+  !*** ./src/container/home/store/redurce.js ***!
+  \*********************************************/
+/*! no static exports found */
+/***/ (function(module, exports, __webpack_require__) {
+
+"use strict";
+eval("\n\nObject.defineProperty(exports, \"__esModule\", {\n\tvalue: true\n});\n\nvar _extends = Object.assign || function (target) { for (var i = 1; i < arguments.length; i++) { var source = arguments[i]; for (var key in source) { if (Object.prototype.hasOwnProperty.call(source, key)) { target[key] = source[key]; } } } return target; };\n\nvar defaultState = {\n\tname: 'jack',\n\tnewsList: []\n};\n\nexports.default = function () {\n\tvar state = arguments.length > 0 && arguments[0] !== undefined ? arguments[0] : defaultState;\n\tvar action = arguments[1];\n\n\tswitch (action.type) {\n\t\tcase 'RENDER_HOME_LIST':\n\t\t\tvar newState = JSON.parse(JSON.stringify(state));\n\t\t\treturn _extends({}, state, {\n\t\t\t\tnewsList: action.data\n\t\t\t});\n\t}\n\treturn state;\n};\n\n//# sourceURL=webpack:///./src/container/home/store/redurce.js?");
 
 /***/ }),
 
@@ -154,7 +190,18 @@ eval("\n\nObject.defineProperty(exports, \"__esModule\", {\n\tvalue: true\n});\n
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
-eval("\n\nObject.defineProperty(exports, \"__esModule\", {\n\tvalue: true\n});\n\nvar _redux = __webpack_require__(/*! redux */ \"redux\");\n\nvar _reduxThunk = __webpack_require__(/*! redux-thunk */ \"redux-thunk\");\n\nvar _reduxThunk2 = _interopRequireDefault(_reduxThunk);\n\nfunction _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }\n\nvar reducer = function reducer() {\n\tvar state = arguments.length > 0 && arguments[0] !== undefined ? arguments[0] : { name: 'jack1', age: '16', love: '1ooxx' };\n\tvar action = arguments[1];\n\n\treturn state;\n};\n\nvar getStore = function getStore() {\n\treturn (0, _redux.createStore)(reducer, (0, _redux.applyMiddleware)(_reduxThunk2.default));\n};\n\nexports.default = getStore;\n\n//# sourceURL=webpack:///./src/store/index.js?");
+eval("\n\nObject.defineProperty(exports, \"__esModule\", {\n\tvalue: true\n});\n\nvar _redux = __webpack_require__(/*! redux */ \"redux\");\n\nvar _reduxThunk = __webpack_require__(/*! redux-thunk */ \"redux-thunk\");\n\nvar _reduxThunk2 = _interopRequireDefault(_reduxThunk);\n\nvar _store = __webpack_require__(/*! ../container/home/store */ \"./src/container/home/store/index.js\");\n\nfunction _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }\n\nvar reducer = (0, _redux.combineReducers)({\n\thome: _store.reducer\n});\n\n// const reducer = (state = { name: 'jack1', age: '16', love: '1ooxx' }, action) => {\n// \treturn state;\n// };\n\nvar getStore = function getStore() {\n\treturn (0, _redux.createStore)(reducer, (0, _redux.applyMiddleware)(_reduxThunk2.default));\n};\n\nexports.default = getStore;\n\n//# sourceURL=webpack:///./src/store/index.js?");
+
+/***/ }),
+
+/***/ "axios":
+/*!************************!*\
+  !*** external "axios" ***!
+  \************************/
+/*! no static exports found */
+/***/ (function(module, exports) {
+
+eval("module.exports = require(\"axios\");\n\n//# sourceURL=webpack:///external_%22axios%22?");
 
 /***/ }),
 
