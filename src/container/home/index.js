@@ -26,6 +26,9 @@ class Home extends Component {
 		this.props.getHomeList();
 	}
 }
+Home.loadData = () => {
+	//服务器请求数据填充数据
+};
 
 const mapStateToProps = state => ({
 	name    : state.home.name,       //home中的name

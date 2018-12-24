@@ -1,19 +1,36 @@
 import React from 'react';
-import { StaticRouter } from 'react-router-dom';
-import Routes from '../Router';
+import { StaticRouter, Route, matchPath } from 'react-router-dom';
+import routes from '../Router';
 import { renderToString } from 'react-dom/server';
 import { Provider } from 'react-redux';
 import getStore from '../store';
 
 export const render = req => {
 	/**
-	 * StaticRouter 并不智能  要求浏览器端发送请求地址location  根据地址判断请求的网页是那个组件 然后再去渲染相对应得组件
+	 * store里写什么并不知道要根据url请求，然后填充数据
 	 */
-	// 每个用户访问页面访问重新生成一个store  每个store都是独立的
+	const store        = getStore();
+	const matchRouters = [];
+	routes.some(route => {
+		const match = matchPath(req.path, route);
+		if (match) {
+			matchRouters.push(route);
+		}
+		console.log(matchRouters);
+
+		return match;
+	});
+
+	//让matchRoutes里面的组件 相对应得loadData方法执行一遍
+
 	const content = renderToString(
-		<Provider store={getStore()}>
+		<Provider store={store}>
 			<StaticRouter location={req.path} context={{}}>
-				{Routes}
+				<div>
+					{routes.map(route => {
+						<Route {...route} />;
+					})}
+				</div>
 			</StaticRouter>
 		</Provider>
 	);
