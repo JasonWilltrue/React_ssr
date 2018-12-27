@@ -1,5 +1,6 @@
 import React from 'react';
 import { StaticRouter, Route, matchPath } from 'react-router-dom';
+import { matchRoutes } from 'react-router-config';
 import routes from '../Router';
 import { renderToString } from 'react-dom/server';
 import { Provider } from 'react-redux';
@@ -9,17 +10,20 @@ export const render = req => {
 	/**
 	 * store里写什么并不知道要根据url请求，然后填充数据
 	 */
-	const store        = getStore();
-	const matchRouters = [];
-	routes.some(route => {
-		const match = matchPath(req.path, route);
-		if (match) {
-			matchRouters.push(route);
-		}
-		console.log(matchRouters);
+	const store = getStore();
+	// const matchRouters = [];
+	const matchedRouters = matchRoutes(routes, req.path);
+	console.log(matchedRouters);
 
-		return match;
-	});
+	// routes.some(route => {
+	// 	const match = matchPath(req.path, route);
+	// 	if (match) {
+	// 		matchRouters.push(route);
+	// 	}
+	// 	console.log(matchRouters);
+
+	// 	return match;
+	// });
 
 	//让matchRoutes里面的组件 相对应得loadData方法执行一遍
 
